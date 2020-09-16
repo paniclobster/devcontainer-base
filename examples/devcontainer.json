@@ -1,0 +1,37 @@
+{
+  "name": "Development Container",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile"
+  },
+  "extensions": [
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "googlecloudtools.cloudcode",
+    "ms-azuretools.vscode-docker",
+    "ms-vsliveshare.vsliveshare",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "tyriar.sort-lines",
+    "visualstudioexptteam.vscodeintellicode",
+    "xyz.local-history"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.minikube,target=/usr/local/share/minikube-localhost,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind",
+    "source=paniclobster-devcontainer-workspace-vscode,target=/vscode/.vscode-server/extensions,type=volume",
+    "source=paniclobster-devcontainer-workspace-vscode-insiders,target=/vscode/.vscode-server-insiders/extensions,type=volume"
+  ],
+  "postStartCommand": ["/usr/local/share/docker-init.sh"],
+  "remoteEnv": {
+    "SYNC_LOCALHOST_KUBECONFIG": "true"
+  },
+  "remoteUser": "vscode",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+}
