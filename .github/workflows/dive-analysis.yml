@@ -1,0 +1,31 @@
+name: dive-analysis
+
+env:
+  DOCKER_IMAGE_NAME: paniclobster/devcontainer-workspace
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dive-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2.3.2
+      - name: Build the Docker image
+        uses: docker/build-push-action@v1.1.0
+        with:
+          push: false
+          repository: ${{ env.DOCKER_IMAGE_NAME }}
+          tags: latest
+      - name: Install dive
+        run: |
+          curl -s https://api.github.com/repos/wagoodman/dive/releases | grep browser_download | grep linux | cut -d '"' -f 4 | grep -e /dive_.*\.deb | sort | tail -n 1 | xargs curl -s -L -o dive.deb
+          sudo apt install ./dive.deb
+      - name: Perform dive analysis
+        run: dive ${{ env.DOCKER_IMAGE_NAME }}:latest
