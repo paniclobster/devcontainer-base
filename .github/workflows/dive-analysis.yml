@@ -25,7 +25,7 @@ jobs:
           tags: latest
       - name: Install dive
         run: |
-          curl -s https://api.github.com/repos/wagoodman/dive/releases | grep browser_download | grep linux | cut -d '"' -f 4 | grep -e /dive_.*\.deb | sort | tail -n 1 | xargs curl -s -L -o dive.deb
+          curl --silent https://api.github.com/repos/wagoodman/dive/releases | grep browser_download | grep linux | cut -d '"' -f 4 | grep -e /dive_.*\.deb | sort | tail -n 1 | xargs curl --location --output dive.deb --silent
           sudo apt install ./dive.deb
       - name: Perform dive analysis
         run: dive ${{ env.DOCKER_IMAGE_NAME }}:latest
