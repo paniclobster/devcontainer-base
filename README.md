@@ -18,6 +18,7 @@ configurable setup for different development workspaces needs.
 - Kustomize (kustomize)
 - Minikube (minikube)
 - Node.js (node)
+- kind (kind)
 - Python 3 (python3)
 - Skaffold (skaffold)
 
