@@ -37,14 +37,6 @@ RUN addgroup \
   && echo $DEVCONTAINER_USERNAME ALL=\(root\) NOPASSWD:ALL >/etc/sudoers.d/$DEVCONTAINER_USERNAME \
   && chmod 0440 /etc/sudoers.d/$DEVCONTAINER_USERNAME
 
-# Create vscode server folders
-RUN mkdir -p \
-    /home/$DEVCONTAINER_USERNAME/.vscode-server/extensions \
-    /home/$DEVCONTAINER_USERNAME/.vscode-server-insiders/extensions \
-  && chown -R $DEVCONTAINER_USERNAME \
-    /home/$DEVCONTAINER_USERNAME/.vscode-server \
-    /home/$DEVCONTAINER_USERNAME/.vscode-server-insiders
-
 # Setup setup directory
 ARG DEVCONTAINER_SETUP_DIR=/devcontainer/setup
 ENV DEVCONTAINER_SETUP_DIR $DEVCONTAINER_SETUP_DIR
