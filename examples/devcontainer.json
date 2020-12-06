@@ -21,8 +21,8 @@
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind",
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.minikube,target=/usr/local/share/minikube-localhost,type=bind",
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind",
-    "source=paniclobster-devcontainer-workspace-vscode,target=/vscode/.vscode-server/extensions,type=volume",
-    "source=paniclobster-devcontainer-workspace-vscode-insiders,target=/vscode/.vscode-server-insiders/extensions,type=volume"
+    "source=paniclobster-devcontainer-base-vscode,target=/vscode/.vscode-server/extensions,type=volume",
+    "source=paniclobster-devcontainer-base-vscode-insiders,target=/vscode/.vscode-server-insiders/extensions,type=volume"
   ],
   "postStartCommand": ["/usr/local/share/docker-init.sh"],
   "remoteEnv": {
@@ -32,6 +32,6 @@
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  "workspaceFolder": "/paniclobster/devcontainer-base",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/paniclobster/devcontainer-base,type=bind,consistency=cached"
 }

@@ -1,7 +1,7 @@
 name: build-publish
 
 env:
-  DOCKER_IMAGE_NAME: paniclobster/devcontainer-workspace
+  DOCKER_IMAGE_NAME: paniclobster/devcontainer-base
 
 on:
   push:
