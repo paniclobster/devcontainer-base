@@ -10,6 +10,7 @@ configurable setup for different development workspaces needs.
 
 ## Available Setups
 
+- Dapr CLI (dapr-cli)
 - Ghostscript (ghostscript)
 - Go (go, go-tools)
 - Helm (helm)
