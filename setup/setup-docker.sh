@@ -5,6 +5,7 @@ set -e
 # Install docker
 sudo apk add --no-cache \
     docker \
+    procps \
     socat
 
 # Grant docker access to user
