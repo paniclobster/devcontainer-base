@@ -4,6 +4,9 @@ FROM alpine:3.12.1
 # Exit immediately if a command exits with a non-zero status
 RUN set -e
 
+# Upgrade base packages
+RUN apk upgrade --no-cache
+
 # Install bash
 RUN apk add --no-cache \
     bash
