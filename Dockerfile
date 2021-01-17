@@ -7,18 +7,17 @@ RUN set -e
 # Upgrade base packages
 RUN apk upgrade --no-cache
 
-# Install bash
-RUN apk add --no-cache \
-    bash
-ENV PS1="\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-
 # Install base dependencies
 RUN apk add --no-cache \
+    bash \
     curl \
     git \
     openssh \
     openssl \
     sudo
+
+# Configure bash
+ENV PS1="\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
 # Create vscode user
 ARG DEVCONTAINER_USERNAME=vscode
