@@ -3,7 +3,7 @@
 set -e
 
 # Configure docker socket
-sudo tee /usr/local/share/copy-kube-config.sh >/dev/null \
+sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-kube-config-copy.sh" >/dev/null \
     <<EOF
 #!/usr/bin/env bash
 
@@ -36,10 +36,10 @@ if [ "\$SYNC_LOCALHOST_KUBECONFIG" = "true" ] && [ -d "/usr/local/share/kube-loc
 fi
 EOF
 
-sudo chmod +x /usr/local/share/copy-kube-config.sh
-sudo chown ${DEVCONTAINER_USERNAME}:root /usr/local/share/copy-kube-config.sh
+sudo chmod +x "${DEVCONTAINER_SETUP_DIR}/setup-kube-config-copy.sh"
+sudo chown ${DEVCONTAINER_USERNAME}:root "${DEVCONTAINER_SETUP_DIR}/setup-kube-config-copy.sh"
 
-echo "source /usr/local/share/copy-kube-config.sh" | sudo tee -a /root/.bashrc >>/home/${DEVCONTAINER_USERNAME}/.bashrc
+echo "source ${DEVCONTAINER_SETUP_DIR}/setup-kube-config-copy.sh" | sudo tee -a /root/.bashrc >>/home/${DEVCONTAINER_USERNAME}/.bashrc
 chown ${DEVCONTAINER_USERNAME} /home/${DEVCONTAINER_USERNAME}/.bashrc
 
 # Install Kubectl
