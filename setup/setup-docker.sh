@@ -15,7 +15,7 @@ sudo adduser $DEVCONTAINER_USERNAME docker
 DOCKER_HOST_SOCKET="/var/run/docker-host.sock"
 DOCKER_SOCKET="/var/run/docker.sock"
 
-sudo tee /usr/local/share/docker-init.sh >>/dev/null \
+sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh" >>/dev/null \
     <<EOF
 #!/usr/bin/env bash
 
@@ -30,5 +30,5 @@ if [ ! -f "\${SOCAT_PID}" ] || ! ps -p \$(cat \${SOCAT_PID}) > /dev/null; then
 fi
 EOF
 
-sudo chmod +x /usr/local/share/docker-init.sh
-sudo chown ${DEVCONTAINER_USERNAME}:root /usr/local/share/docker-init.sh
+sudo chmod +x "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh"
+sudo chown ${DEVCONTAINER_USERNAME}:root "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh"
