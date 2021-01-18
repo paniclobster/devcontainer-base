@@ -32,3 +32,6 @@ EOF
 
 sudo chmod +x "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh"
 sudo chown ${DEVCONTAINER_USERNAME}:root "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh"
+
+echo "source ${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh" | sudo tee -a /root/.bashrc >>/home/${DEVCONTAINER_USERNAME}/.bashrc
+chown ${DEVCONTAINER_USERNAME} /home/${DEVCONTAINER_USERNAME}/.bashrc
