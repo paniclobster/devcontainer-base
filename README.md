@@ -21,6 +21,7 @@ configurable setup for different development workspaces needs.
 - Minikube (minikube)
 - Node.js (node)
 - kind (kind)
+- Python 2 (python2)
 - Python 3 (python3)
 - Skaffold (skaffold)
 
