@@ -14,6 +14,11 @@ on:
 jobs:
   anchore-analysis:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        variant:
+          - alpine
+          - debian
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2.3.4
@@ -22,6 +27,7 @@ jobs:
       - name: Build the Docker image
         uses: docker/build-push-action@v2.2.0
         with:
+          context: ${{ matrix.variant }}
           push: false
           tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
       - name: Perform Anchore analysis
