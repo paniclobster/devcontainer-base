@@ -11,6 +11,15 @@ on:
 jobs:
   build-publish:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - variant: alpine
+            tagLatest: alpine
+            tagSuffix: alpine
+          - variant: debian
+            tagLatest: latest
+            tagSuffix: ""
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2.3.4
@@ -23,9 +32,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Get release version
         id: get_release_version
-        run: echo ::set-output name=tags::${GITHUB_REF#refs/*/v}
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/v}
       - name: Build and Push the Docker image
-        uses: docker/build-push-action@v2.2.0
+        uses: docker/build-push-action@v2.3.0
         with:
+          context: ./${{ matrix.variant }}
           push: true
-          tags: ${{ env.DOCKER_IMAGE_NAME }}:${{ steps.get_release_version.outputs.tags }},${{ env.DOCKER_IMAGE_NAME }}:latest
+          tags: ${{ env.DOCKER_IMAGE_NAME }}:${{ steps.get_release_version.outputs.tag }}${{ matrix.tagSuffix }},${{ env.DOCKER_IMAGE_NAME }}:${{ matrix.tagLatest }}

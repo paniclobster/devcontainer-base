@@ -1,20 +1,18 @@
 # Base image
-FROM alpine:3.13.1
+FROM debian:buster-slim
 
 # Exit immediately if a command exits with a non-zero status
 RUN set -e
 
 # Install base dependencies
-RUN apk add --no-cache \
-    bash \
+RUN apt-get update \
+  && apt-get install --assume-yes \
     curl \
     git \
-    openssh \
-    openssl \
-    sudo
-
-# Configure bash
-ENV PS1="\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+    openssh-client \
+    nano \
+    sudo \
+  && rm -rf /var/lib/apt/lists/*
 
 # Create vscode user
 ARG DEVCONTAINER_USERNAME=vscode
@@ -22,15 +20,14 @@ ENV DEVCONTAINER_USERNAME=$DEVCONTAINER_USERNAME
 ARG GROUPNAME=$DEVCONTAINER_USERNAME
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN addgroup \
+RUN groupadd \
     --gid $USER_GID \
     $GROUPNAME \
-  && adduser \
-    --disabled-password \
-    --gecos $DEVCONTAINER_USERNAME \
-    --home /home/$DEVCONTAINER_USERNAME \
-    --ingroup $GROUPNAME \
-    --shell /bin/ash \
+  && useradd \
+    --create-home \
+    --home-dir /home/$DEVCONTAINER_USERNAME \
+    --gid $USER_GID \
+    --shell /bin/bash \
     --uid $USER_UID \
     $DEVCONTAINER_USERNAME \
   && echo $DEVCONTAINER_USERNAME ALL=\(root\) NOPASSWD:ALL >/etc/sudoers.d/$DEVCONTAINER_USERNAME \

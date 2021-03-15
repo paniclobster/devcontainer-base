@@ -16,7 +16,7 @@ DOCKER_HOST_SOCKET="/var/run/docker-host.sock"
 DOCKER_SOCKET="/var/run/docker.sock"
 
 sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh" >>/dev/null \
-    <<EOF
+<<EOF
 #!/usr/bin/env bash
 
 set -e
