@@ -9,6 +9,7 @@ RUN apt-get update \
   && apt-get install --assume-yes \
     curl \
     git \
+    git-lfs \
     openssh-client \
     nano \
     sudo \
