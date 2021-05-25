@@ -12,6 +12,7 @@ RUN apt-get update \
     git-lfs \
     openssh-client \
     nano \
+    software-properties-common \
     sudo \
   && rm -rf /var/lib/apt/lists/*
 

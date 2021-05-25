@@ -17,6 +17,7 @@ Debian with a configurable setup for different development workspaces needs.
 - ImageMagick (imagemagick)
 - Kubernetes (kubernetes, helm, kustomize, minikube, kind, skaffold)
 - Node.js (node)
+- Packer (packer)
 - Python 2 (python2)
 - Python 3 (python3)
 
@@ -28,6 +29,7 @@ Debian with a configurable setup for different development workspaces needs.
 - ImageMagick (imagemagick)
 - Kubernetes (kubernetes, helm, kustomize, minikube, kind, skaffold)
 - Node.js (node)
+- Packer (packer)
 - Python 2 (python2)
 - Python 3 (python3)
 
