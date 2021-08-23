@@ -34,7 +34,7 @@ jobs:
         id: get_release_version
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/v}
       - name: Build and Push the Docker image
-        uses: docker/build-push-action@v2.6.1
+        uses: docker/build-push-action@v2.7.0
         with:
           context: ./${{ matrix.variant }}
           push: true
