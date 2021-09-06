@@ -34,6 +34,7 @@ jobs:
         uses: anchore/scan-action@v2.0.4
         with:
           acs-report-enable: true
+          fail-build: false
           image: ${{ env.DOCKER_IMAGE_NAME }}:latest
       - name: Upload Anchore report
         uses: github/codeql-action/upload-sarif@v1
