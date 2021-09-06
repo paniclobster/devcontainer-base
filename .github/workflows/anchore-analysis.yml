@@ -31,7 +31,7 @@ jobs:
           push: false
           tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
       - name: Perform Anchore analysis
-        uses: anchore/scan-action@v2.0.4
+        uses: anchore/scan-action@v3
         with:
           acs-report-enable: true
           fail-build: false
