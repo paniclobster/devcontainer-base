@@ -1,11 +1,12 @@
 # Base image
-FROM debian:buster-slim
+FROM debian:10.11-slim
 
 # Exit immediately if a command exits with a non-zero status
 RUN set -e
 
 # Install base dependencies
 RUN apt-get update \
+  && apt-get upgrade --assume-yes \
   && apt-get install --assume-yes \
     curl \
     git \
