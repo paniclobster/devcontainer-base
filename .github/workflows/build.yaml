@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  alpine-build:
+    uses: paniclobster/github-workflows/.github/workflows/docker-build.yaml@main
+    with:
+      docker_build_context: ./alpine
+  debian-build:
+    uses: paniclobster/github-workflows/.github/workflows/docker-build.yaml@main
+    with:
+      docker_build_context: ./debian
