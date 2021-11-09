@@ -5,7 +5,8 @@ FROM alpine:3.14.2
 RUN set -e
 
 # Install base dependencies
-RUN apk add --no-cache \
+RUN apk upgrade --no-cache \
+  && apk add --no-cache \
     bash \
     curl \
     git \
