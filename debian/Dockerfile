@@ -1,5 +1,5 @@
 # Base image
-FROM debian:10.11-slim
+FROM debian:11.1-slim
 
 # Exit immediately if a command exits with a non-zero status
 RUN set -e
