@@ -23,7 +23,7 @@ sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh" >>/dev/null \
     <<EOF
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 SOCAT_PATH_BASE=/tmp/vscr-dind-socat
 SOCAT_LOG=\${SOCAT_PATH_BASE}.log
