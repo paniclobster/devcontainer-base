@@ -15,7 +15,14 @@ Debian with a configurable setup for different development workspaces needs.
 - Ghostscript (ghostscript)
 - Go (go, go-tools)
 - ImageMagick (imagemagick)
-- Kubernetes (kubernetes, helm, kustomize, minikube, kind, skaffold)
+- Kubernetes
+  - kubernetes
+  - helm
+  - kustomize
+  - minikube
+  - kind
+  - skaffold
+  - tilt
 - Node.js (node)
 - Packer (packer)
 - Python 2 (python2)
@@ -27,7 +34,14 @@ Debian with a configurable setup for different development workspaces needs.
 - Ghostscript (ghostscript)
 - Go (go, go-tools)
 - ImageMagick (imagemagick)
-- Kubernetes (kubernetes, helm, kustomize, minikube, kind, skaffold)
+- Kubernetes
+  - kubernetes
+  - helm
+  - kustomize
+  - minikube
+  - kind
+  - skaffold
+  - tilt
 - Node.js (node)
 - Packer (packer)
 - Python 2 (python2)
