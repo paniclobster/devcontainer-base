@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Minikube
 MINIKUBE_INSTALL_VERSION=${MINIKUBE_VERSION:-latest}

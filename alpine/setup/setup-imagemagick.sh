@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install ImageMagick
 sudo apk add --no-cache \

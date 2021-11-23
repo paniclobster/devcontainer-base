@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install docker
 sudo apk add --no-cache \
@@ -19,7 +19,7 @@ sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-docker-init.sh" >>/dev/null \
 <<EOF
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 SOCAT_PATH_BASE=/tmp/vscr-dind-socat
 SOCAT_LOG=\${SOCAT_PATH_BASE}.log

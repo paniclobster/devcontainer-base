@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Go tools
 export GOPATH=${DOCKER_GO_PATH}

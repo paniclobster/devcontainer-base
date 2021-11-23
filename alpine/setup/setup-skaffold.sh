@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Skaffold
 SKAFFOLD_INSTALL_VERSION=${SKAFFOLD_VERSION:-latest}

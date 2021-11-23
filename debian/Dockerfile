@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:debian-11
 
 # Exit immediately if a command exits with a non-zero status
-RUN set -e
+RUN set -ex
 
 # Install base dependencies
 RUN apt-get update \

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Kustomize
 KUSTOMIZE_INSTALL_VERSION=${KUSTOMIZE_VERSION:-master}

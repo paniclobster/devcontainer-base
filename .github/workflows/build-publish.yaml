@@ -11,6 +11,7 @@ jobs:
     with:
       docker_build_context: ./alpine
       docker_image_name: paniclobster/devcontainer-base
+      docker_image_tag_suffix: -alpine
     secrets:
       docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
       docker_hub_password: ${{ secrets.DOCKER_HUB_PASSWORD }}

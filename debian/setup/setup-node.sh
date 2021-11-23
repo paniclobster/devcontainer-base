@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install nodejs, nodejs-npm
 curl --location --silent "https://deb.nodesource.com/setup_14.x" | sudo bash -

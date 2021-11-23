@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:alpine-3.14
 
 # Exit immediately if a command exits with a non-zero status
-RUN set -e
+RUN set -ex
 
 # Install base dependencies
 RUN apk upgrade --no-cache \

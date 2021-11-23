@@ -1,0 +1,63 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  alpine-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2.4.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1.6.0
+      - name: Login to GitHub container registry
+        uses: docker/login-action@v1.10.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the Docker image
+        uses: docker/build-push-action@v2.7.0
+        with:
+          context: ./alpine
+          push: true
+          tags: "ghcr.io/paniclobster/devcontainer-base:test-alpine"
+      - name: Test setup scripts
+        uses: docker/build-push-action@v2.7.0
+        with:
+          build-args: |
+            BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-alpine
+          context: ./tests/alpine
+          push: false
+  debian-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2.4.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1.6.0
+      - name: Login to GitHub container registry
+        uses: docker/login-action@v1.10.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the Docker image
+        uses: docker/build-push-action@v2.7.0
+        with:
+          context: ./debian
+          push: true
+          tags: "ghcr.io/paniclobster/devcontainer-base:test"
+      - name: Test setup scripts
+        uses: docker/build-push-action@v2.7.0
+        with:
+          build-args: |
+            BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test
+          context: ./tests/debian
+          push: false

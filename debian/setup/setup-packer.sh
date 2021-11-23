@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install GPG key
 curl --location --silent https://apt.releases.hashicorp.com/gpg | sudo apt-key add -

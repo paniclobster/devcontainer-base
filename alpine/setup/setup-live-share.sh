@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install VS Code Live Share dependencies
 sudo apk add --no-cache \

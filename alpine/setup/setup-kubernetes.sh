@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Configure docker socket
 sudo tee "${DEVCONTAINER_SETUP_DIR}/setup-kube-config-copy.sh" >/dev/null \

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Helm
 HELM_INSTALL_VERSION=${HELM_VERSION:-master}

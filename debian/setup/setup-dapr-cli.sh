@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 # Install Dapr CLI
 DAPR_CLI_INSTALL_VERSION=${DAPR_CLI_VERSION:-master}
