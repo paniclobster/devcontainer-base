@@ -3,7 +3,7 @@
 set -ex
 
 # Install nodejs, nodejs-npm
-curl --location --silent "https://deb.nodesource.com/setup_14.x" | sudo bash -
+curl --location --silent "https://deb.nodesource.com/setup_16.x" | sudo bash -
 sudo apt-get update \
     && sudo apt-get install --assume-yes \
         nodejs \
