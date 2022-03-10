@@ -6,4 +6,4 @@ jobs:
   dependabot-automerge:
     uses: paniclobster/github-workflows/.github/workflows/dependabot-automerge.yaml@main
     secrets:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
+      automerge_github_token: ${{ secrets.GITHUB_TOKEN }}
