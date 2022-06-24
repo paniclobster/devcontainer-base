@@ -17,7 +17,9 @@ if [ "\$SYNC_LOCALHOST_KUBECONFIG" = "true" ] && [ -d "/usr/local/share/kube-loc
     # If .minikube was mounted, set up client cert/key
     if [ -d "/usr/local/share/minikube-localhost" ]; then
         mkdir -p \$HOME/.minikube
-        sudo cp -r /usr/local/share/minikube-localhost/ca.crt \$HOME/.minikube
+        if [ -f "/usr/local/share/minikube-localhost/ca.crt" ]; then
+            sudo cp -r /usr/local/share/minikube-localhost/ca.crt \$HOME/.minikube
+        fi
         # Location varies between versions of minikube
         if [ -f "/usr/local/share/minikube-localhost/client.crt" ]; then
             sudo cp -r /usr/local/share/minikube-localhost/client.crt \$HOME/.minikube
