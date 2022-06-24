@@ -4,8 +4,10 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:alpine-3.15
 # Exit immediately if a command exits with a non-zero status
 RUN set -ex
 
-# Install base dependencies
-RUN apk upgrade --no-cache \
+# Update base dependencies
+RUN apk del --no-cache \
+    zsh \
+  && apk upgrade --no-cache \
   && apk add --no-cache \
     bash \
     curl \
@@ -33,3 +35,11 @@ ARG DEVCONTAINER_USERNAME=vscode
 ENV DEVCONTAINER_USERNAME=$DEVCONTAINER_USERNAME
 USER $DEVCONTAINER_USERNAME
 WORKDIR /home/$DEVCONTAINER_USERNAME
+
+# Disable __bash_prompt
+RUN sed --in-place '/^__bash_prompt$/d' /home/$DEVCONTAINER_USERNAME/.bashrc
+
+# Remove oh-my-zsh settings
+RUN rm --recursive \
+  /home/$DEVCONTAINER_USERNAME/.oh-my-zsh \
+  /home/$DEVCONTAINER_USERNAME/.zshrc

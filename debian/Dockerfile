@@ -5,7 +5,9 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:debian-11
 RUN set -ex
 
 # Install base dependencies
-RUN apt-get update \
+RUN apt-get purge --assume-yes \
+    zsh \
+  && apt-get update \
   && apt-get upgrade --assume-yes \
   && apt-get install --assume-yes \
     curl \
@@ -34,3 +36,11 @@ ARG DEVCONTAINER_USERNAME=vscode
 ENV DEVCONTAINER_USERNAME=$DEVCONTAINER_USERNAME
 USER $DEVCONTAINER_USERNAME
 WORKDIR /home/$DEVCONTAINER_USERNAME
+
+# Disable __bash_prompt
+RUN sed --in-place '/^__bash_prompt$/d' /home/$DEVCONTAINER_USERNAME/.bashrc
+
+# Remove oh-my-zsh settings
+RUN rm --recursive \
+  /home/$DEVCONTAINER_USERNAME/.oh-my-zsh \
+  /home/$DEVCONTAINER_USERNAME/.zshrc
