@@ -4,4 +4,5 @@ set -ex
 
 # Install ImageMagick
 sudo apk add --no-cache \
-    imagemagick
+    imagemagick \
+    imagemagick-dev
