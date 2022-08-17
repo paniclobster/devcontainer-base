@@ -27,3 +27,4 @@ go get -u -v \
     golang.org/x/tools/cmd/goimports \
     golang.org/x/tools/cmd/gorename \
     golang.org/x/tools/cmd/guru
+go install -v golang.org/x/tools/gopls@latest
