@@ -13,9 +13,10 @@ jobs:
     uses: paniclobster/github-workflows/.github/workflows/docker-anchore-analysis.yaml@main
     with:
       docker_build_context: ./alpine
-      docker_image_name: paniclobster/helm-packager
+      docker_image_name: paniclobster/devcontainer-base
+      docker_image_tag_suffix: -alpine
   debian-anchore-analysis:
     uses: paniclobster/github-workflows/.github/workflows/docker-anchore-analysis.yaml@main
     with:
       docker_build_context: ./debian
-      docker_image_name: paniclobster/helm-packager
+      docker_image_name: paniclobster/devcontainer-base
