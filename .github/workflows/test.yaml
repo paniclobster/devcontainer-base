@@ -23,13 +23,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the Docker image
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v3.2.0
         with:
           context: ./alpine
           push: true
           tags: "ghcr.io/paniclobster/devcontainer-base:test-alpine"
       - name: Test setup scripts
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v3.2.0
         with:
           build-args: |
             BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-alpine
@@ -49,13 +49,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the Docker image
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v3.2.0
         with:
           context: ./debian
           push: true
           tags: "ghcr.io/paniclobster/devcontainer-base:test"
       - name: Test setup scripts
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v3.2.0
         with:
           build-args: |
             BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test
