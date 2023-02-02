@@ -15,7 +15,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3.3.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.3.0
+        uses: docker/setup-buildx-action@v2.4.0
       - name: Build and Load the Docker image
         uses: docker/build-push-action@v4.0.0
         with:
@@ -36,7 +36,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3.3.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.3.0
+        uses: docker/setup-buildx-action@v2.4.0
       - name: Build and Load the Docker image
         uses: docker/build-push-action@v4.0.0
         with:
