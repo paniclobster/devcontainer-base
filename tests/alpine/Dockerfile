@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=paniclobster/devcontainer-base:alpine
+ARG BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-alpine
 FROM $BASE_IMAGE
 
 # Test Alpine SDK

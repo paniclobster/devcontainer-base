@@ -28,6 +28,8 @@ jobs:
           context: ./alpine
           push: true
           tags: ghcr.io/paniclobster/devcontainer-base:test-alpine
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: Test setup scripts
         uses: docker/build-push-action@v4.0.0
         with:
@@ -35,6 +37,8 @@ jobs:
             BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-alpine
           context: ./tests/alpine
           push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   debian-build:
     runs-on: ubuntu-latest
     steps:
@@ -54,6 +58,8 @@ jobs:
           context: ./debian
           push: true
           tags: ghcr.io/paniclobster/devcontainer-base:test-debian
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: Test setup scripts
         uses: docker/build-push-action@v4.0.0
         with:
@@ -61,3 +67,5 @@ jobs:
             BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-debian
           context: ./tests/debian
           push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

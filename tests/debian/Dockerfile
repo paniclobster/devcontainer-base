@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=paniclobster/devcontainer-base
+ARG BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-debian
 FROM $BASE_IMAGE
 
 # Test Dapr CLI
