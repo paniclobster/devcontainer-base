@@ -13,13 +13,15 @@ jobs:
       docker_image_name: paniclobster/devcontainer-base
       docker_image_tag_suffix: -alpine
     secrets:
-      docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_hub_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      docker_login_registry: docker.io
+      docker_login_username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      docker_login_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
   debian-build-publish:
     uses: paniclobster/github-workflows/.github/workflows/docker-build-publish.yaml@main
     with:
       docker_build_context: ./debian
       docker_image_name: paniclobster/devcontainer-base
     secrets:
-      docker_hub_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_hub_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      docker_login_registry: docker.io
+      docker_login_username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      docker_login_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
