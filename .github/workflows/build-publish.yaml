@@ -10,18 +10,18 @@ jobs:
     uses: paniclobster/github-workflows/.github/workflows/docker-build-publish.yaml@main
     with:
       docker_build_context: ./alpine
-      docker_image_name: paniclobster/devcontainer-base
+      docker_image_name: ghcr.io/${{ github.repository }}
       docker_image_tag_suffix: -alpine
     secrets:
-      docker_login_registry: docker.io
-      docker_login_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_login_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      docker_login_registry: ghcr.io
+      docker_login_username: ${{ github.actor }}
+      docker_login_password: ${{ secrets.GITHUB_TOKEN }}
   debian-build-publish:
     uses: paniclobster/github-workflows/.github/workflows/docker-build-publish.yaml@main
     with:
       docker_build_context: ./debian
-      docker_image_name: paniclobster/devcontainer-base
+      docker_image_name: ghcr.io/${{ github.repository }}
     secrets:
-      docker_login_registry: docker.io
-      docker_login_username: ${{ secrets.DOCKER_HUB_USERNAME }}
-      docker_login_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      docker_login_registry: ghcr.io
+      docker_login_username: ${{ github.actor }}
+      docker_login_password: ${{ secrets.GITHUB_TOKEN }}
