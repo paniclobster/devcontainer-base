@@ -26,15 +26,16 @@ jobs:
         uses: docker/build-push-action@v4.1.0
         with:
           context: ./alpine
-          push: true
-          tags: ghcr.io/paniclobster/devcontainer-base:test-alpine
+          load: true
+          push: false
+          tags: devcontainer-base:test-alpine
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Test setup scripts
         uses: docker/build-push-action@v4.1.0
         with:
           build-args: |
-            BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-alpine
+            BASE_IMAGE=devcontainer-base:test-alpine
           context: ./tests/alpine
           push: false
           cache-from: type=gha
@@ -56,15 +57,16 @@ jobs:
         uses: docker/build-push-action@v4.1.0
         with:
           context: ./debian
-          push: true
-          tags: ghcr.io/paniclobster/devcontainer-base:test-debian
+          load: true
+          push: false
+          tags: devcontainer-base:test-debian
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Test setup scripts
         uses: docker/build-push-action@v4.1.0
         with:
           build-args: |
-            BASE_IMAGE=ghcr.io/paniclobster/devcontainer-base:test-debian
+            BASE_IMAGE=devcontainer-base:test-debian
           context: ./tests/debian
           push: false
           cache-from: type=gha
