@@ -1,5 +1,5 @@
 # Base image
-FROM mcr.microsoft.com/vscode/devcontainers/base:debian-11
+FROM mcr.microsoft.com/vscode/devcontainers/base:debian-12
 
 # Exit immediately if a command exits with a non-zero status
 RUN set -ex
