@@ -1,5 +1,5 @@
 # Base image
-FROM mcr.microsoft.com/vscode/devcontainers/base:alpine-3.18
+FROM mcr.microsoft.com/vscode/devcontainers/base:alpine-3.19
 
 # Exit immediately if a command exits with a non-zero status
 RUN set -ex
